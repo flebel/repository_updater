@@ -1,0 +1,40 @@
+# Repository Updater: a script to automatically update cloned repositories.
+
+Allows updating to the latest version of the default source for as many
+different cloned repositories as there is in a specified directory.
+
+This script will not attempt any merge operation with the latest version
+pulled from the source as it is expected to be used with cloned
+repositories that aren't used for development. Although this document
+refers to cloned repositories, this script also support SCMs that do
+not allow complete repository cloning, such as Subversion.
+
+Supported SCMs: Git, Mercurial and Subversion.
+
+# Usage
+
+Presuming you've cloned the Git repository of this script into the
+directory "~/repos/repository_updater/", simply run
+"python repository_update.py repositories_parent_directory" with the
+repositories' parent directory as the first and only positional argument.
+In this example, since the all of the cloned repositories reside in the
+parent directory of this script, you would run
+"python repository_updater.py .." to update the repositories that are
+located in "~/repos/some_directory/".
+
+Call the script with "--dry-run" to see which commands would be run and in
+which directory without actually updating the repositories. This can also
+be used to get an idea of which SCMs are used for the projects you cloned,
+and how many projects are using each of them.
+
+# FAQ
+
+Q: How can I add support for another SCM?
+A: Simply add the SCM's in the "supported_scm_repositories" dictionary.
+   The key being the folder located at the root of the cloned repository
+   (such as ".git"), which will be used to determine the type of SCM of
+   the repository. The value will be a tuple of the commands required to
+   update to the latest version. You can also specify a tuple of tuples of
+   commands if it requires multiple commands. It should be trivial if
+   you take example on the SCMs that are included in this script. I will
+   gladly accept a patch which adds support for SCMs.
