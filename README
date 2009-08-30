@@ -15,11 +15,11 @@ Supported SCMs: Git, Mercurial and Subversion.
 
 Presuming you've cloned the Git repository of this script into the
 directory "~/repos/repository_updater/", simply run
-"python repository_update.py repositories_parent_directory" with the
+"./repository_update.py repositories_parent_directory" with the
 repositories' parent directory as the first and only positional argument.
 In this example, since the all of the cloned repositories reside in the
 parent directory of this script, you would run
-"python repository_updater.py .." to update the repositories that are
+"./repository_updater.py .." to update the repositories that are
 located in "~/repos/some_directory/".
 
 Call the script with "--dry-run" to see which commands would be run and in
